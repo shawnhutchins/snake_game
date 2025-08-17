@@ -2,7 +2,8 @@ from turtle import Turtle
 
 SCORE_CORDS = (0, 270)
 SCORE_COLOR = "white"
-SCORE_FONT = ("Arial", 12, "normal")
+FONT = ("Arial", 12, "normal")
+ALIGNMENT = "center"
 
 class Scoreboard(Turtle):
 
@@ -17,8 +18,11 @@ class Scoreboard(Turtle):
     def show_score(self):
         self.clear()
         self.goto(SCORE_CORDS)
-        self.write(f"Score: {self.score}", move=True, align="center", font=SCORE_FONT)
+        self.write(f"Score: {self.score}", move=True, align=ALIGNMENT, font=FONT)
+
+    def game_over(self):
+        self.goto(0, 0)
+        self.write("GAME OVER", align=ALIGNMENT, font=FONT)
 
     def increment_score(self):
         self.score += 1
-
