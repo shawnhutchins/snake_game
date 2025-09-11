@@ -14,11 +14,12 @@ class Scoreboard(Turtle):
         self.color(SCORE_COLOR)
         self.goto(SCORE_CORDS)
         self.score = 0
+        self.highscore = 0
 
     def show_score(self):
         self.clear()
         self.goto(SCORE_CORDS)
-        self.write(f"Score: {self.score}", move=True, align=ALIGNMENT, font=FONT)
+        self.write(f"Score: {self.score} Highscore: {self.highscore}", move=True, align=ALIGNMENT, font=FONT)
 
     def game_over(self):
         self.goto(0, 0)
@@ -26,3 +27,7 @@ class Scoreboard(Turtle):
 
     def increment_score(self):
         self.score += 1
+
+    def update_highscore(self):
+        if self.score > self.highscore:
+            self.highscore = self.score
