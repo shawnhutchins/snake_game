@@ -25,6 +25,10 @@ class Scoreboard(Turtle):
         self.goto(0, 0)
         self.write("GAME OVER", align=ALIGNMENT, font=FONT)
 
+    def reset_score(self):
+        self.score = 0
+        self.show_score()
+
     def increment_score(self):
         self.score += 1
 
