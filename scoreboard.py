@@ -1,3 +1,4 @@
+import os.path
 from turtle import Turtle
 
 SCORE_CORDS = (0, 270)
@@ -15,6 +16,22 @@ class Scoreboard(Turtle):
         self.goto(SCORE_CORDS)
         self.score = 0
         self.highscore = 0
+        self.init_highscore()
+        self.load_highscore()
+
+    def init_highscore(self):
+        if not os.path.exists("highscore.txt"):
+            with open("highscore.txt", mode="w") as file:
+                file.write("0")
+
+    def load_highscore(self):
+        with open("highscore.txt") as file:
+            highscore = file.read()
+            self.highscore = int(highscore)
+
+    def save_highscore(self):
+        with open("highscore.txt", mode="w") as file:
+            file.write(str(self.highscore))
 
     def show_score(self):
         self.clear()

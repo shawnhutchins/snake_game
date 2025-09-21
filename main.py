@@ -37,6 +37,7 @@ while game_is_on:
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
         snake.reset_snake()
         scoreboard.update_highscore()
+        scoreboard.save_highscore()
         scoreboard.reset_score()
 
     #Detect collision with tail using slicing
@@ -44,6 +45,7 @@ while game_is_on:
         if snake.head.distance(segment) < 10:
             snake.reset_snake()
             scoreboard.update_highscore()
+            scoreboard.save_highscore()
             scoreboard.reset_score()
 
 screen.exitonclick()
